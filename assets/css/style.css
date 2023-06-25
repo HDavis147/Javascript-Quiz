@@ -1,13 +1,40 @@
 body {
     font-family: Helvetica, sans-serif;
+    color: rgb(97, 97, 97);
+    background-color: rgb(207, 198, 198);
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    white-space: nowrap;
 }
 
 .center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }
 
+.content {
+    border: 3px solid black;
+}
+
+.question {
+    margin: auto;
+    display: block;
+    border: 3px solid rgb(255, 0, 0);
+}
+
+.answers {
+    margin: auto;
+    display: block;
+    border: 2px solid rgb(11, 36, 179);
+}
+
 #title-flair {
-    color: red;
+    color: black;
 }
