@@ -1,7 +1,18 @@
+:root {
+    --niceGray: rgb(97, 97, 97);
+}
+
 body {
     font-family: Helvetica, sans-serif;
-    color: rgb(97, 97, 97);
+    color: var(--niceGray);
     background-color: rgb(207, 198, 198);
+}
+
+.start-button {
+    background-color: var(--niceGray);
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 32px;
 }
 
 .title {
@@ -23,13 +34,13 @@ body {
     border: 3px solid black;
 }
 
-.question {
+.top {
     margin: auto;
     display: block;
     border: 3px solid rgb(255, 0, 0);
 }
 
-.answers {
+.bottom {
     margin: auto;
     display: block;
     border: 2px solid rgb(11, 36, 179);
