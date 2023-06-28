@@ -6,6 +6,7 @@ body {
     font-family: Helvetica, sans-serif;
     color: var(--niceGray);
     background-color: rgb(207, 198, 198);
+    margin: auto;
 }
 
 .start-button {
@@ -28,6 +29,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+#timeDisplay {
+    display:flex;
+    justify-content: space-around;
 }
 
 .content {

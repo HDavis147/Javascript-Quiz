@@ -1,7 +1,11 @@
 var topEl = $('.top');
-var timerEl = $('#timer');
+var timerContainer = $('#timer');
 var questionEl = $('#question');
 var bottomEl = $('#bottom');
+var timeDisplayer = $('#timeDisplay');
+var buttonEl = $('#btn');
+
+
 
 function colorChanger() {
     var iterate = true;
@@ -21,12 +25,35 @@ function colorChanger() {
 colorChanger();
 
 
-function startGame(event) {
-    //Removes button once clicked
-    $(event.target).parent().remove();
+function startQuiz() {
+    var timeLeft = 10;
+    var quizInterval = setInterval(function () {
+    var answerable = true;
+    
+        if((timeLeft > 0) && (answerable = true)) {
+            timeDisplayer.text(timeLeft + " s");
+            timeLeft --;
+        } else if (timeLeft == 0) {
+            timeDisplayer.text("Out of time.").css("color", "red");
+            answerable = false;
+            clearInterval(quizInterval);
+        }
+
+    questionEl.text("What is Javascript?");
+    
+      }, 1000)
+    
 }
 
-topEl.on('click', '.start-button', startGame);
+
+
+function getStarted(event) {
+    //Removes button once clicked
+    $(event.target).remove();
+    startQuiz();
+}
+
+topEl.on('click', '.start-button', getStarted);
 
 
 // GIVEN I am taking a code quiz
