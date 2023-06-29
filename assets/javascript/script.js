@@ -4,6 +4,7 @@ var questionEl = $('#question');
 var bottomEl = $('#bottom');
 var timeDisplayer = $('#timeDisplay');
 var buttonEl = $('#btn');
+var answerEl = $('#answerList');
 
 
 
@@ -24,25 +25,42 @@ function colorChanger() {
 
 colorChanger();
 
+var timeLeft = 10;
 
 function startQuiz() {
-    var timeLeft = 10;
+    
+    timeDisplayer.text(timeLeft + " s");
+
     var quizInterval = setInterval(function () {
     var answerable = true;
-    
+
         if((timeLeft > 0) && (answerable = true)) {
-            timeDisplayer.text(timeLeft + " s");
             timeLeft --;
+            timeDisplayer.text(timeLeft + " s");
         } else if (timeLeft == 0) {
             timeDisplayer.text("Out of time.").css("color", "red");
             answerable = false;
             clearInterval(quizInterval);
         }
-
-    questionEl.text("What is Javascript?");
-    
       }, 1000)
+
     
+
+    var answers = ["10", "1", "1000", "100"];
+    questionEl.text("What value is equal to one second in an interval function?");
+
+    for(i=0; i<= answers.length -1; i++) {
+    var answerLi = $('<li>');
+    answerLi.addClass('list-item');
+    answerLi.addClass('answer-button');
+    answerEl.append(answerLi.text(answers[i]))
+    }
+
+    function decrementer(event) {
+        timeLeft --;
+    }
+
+    answerEl.on('click', '.answer-button', decrementer);
 }
 
 
@@ -54,16 +72,3 @@ function getStarted(event) {
 }
 
 topEl.on('click', '.start-button', getStarted);
-
-
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
