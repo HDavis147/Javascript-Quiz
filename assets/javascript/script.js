@@ -58,6 +58,7 @@ function startQuiz() {
 
     function decrementer(event) {
         timeLeft --;
+        timeDisplayer.text(timeLeft + " s");
     }
 
     answerEl.on('click', '.answer-button', decrementer);
